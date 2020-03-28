@@ -1,5 +1,22 @@
 # Investigation
 
+## Describe the different data analysis architectures.
+
+### Hadoop / MapReduce
+
+#### MAPREDUCE is a software framework and programming model used for processing huge amounts of data. MapReduce program work in two phases, namely, Map and Reduce. Map tasks deal with splitting and mapping of data while Reduce tasks shuffle and reduce the data.
+
+#### Hadoop is an open source software framework for storing data and running applications on commercial hardware clusters. It provides massive storage for any type of data, enormous processing power and the ability to process virtually unlimited concurrent jobs or tasks.
+
+### Bases de datos NoSQL
+
+#### When we talk about NoSQL databases, also known as “Not only SQL”, we are referring to a wide class of data management systems (mechanisms for data storage and retrieval) that differ, in important respects, from the classic relationship model. between entities (or tables) existing in relational database management systems, the most prominent being that which does not use SQL as the main query language.
+
+### SGBDR Extendidos
+
+#### A relational database management system (RDBMS) is a program that allows you to create, update, and manage a relational database. Most commercial RDBMS use the structured query language (SQL) to access the database, although SQL was invented after the development of the relational model and is not necessary for its use, since they are an extended part of the systems. common.
+
+
 ## characteristics of a data center.
 
 #### 1.Security: Data is the fundamental support of any business model in the modern era, so ensuring the security of information is one of the main priorities of companies. On the one hand, it is necessary to take into account the protection measures that will be implemented in the physical environment. In this sense, the access control measures (identification cards, biometrics, etc.) stand out so that only authorized personnel can contact the data center. On the other hand, it is essential to have protection tools such as data encryption. , either by hardware or by software, as well as security solutions against the loss of information and / or corruption in power failures.
@@ -62,4 +79,10 @@
 #### This architecture attempts to simplify by only keeping one code base rather than manage one for each batch and speed layers in the Lambda Architecture. In addition, queries only need to look in a single serving location instead of going against batch and speed views.
 
 #### The complication of this architecture mostly revolves around having to process this data in a stream, such as handling duplicate events, cross-referencing events or maintaining order- operations that are generally easier to do in batch processing.
+
+## Contrast the advantages and disadvantages of each big data architecture with respect to incremental architectures.
+
+#### Fully incremental architectures present problems such as compaction, high consistency of highly available data and lack of tolerance to human failures that require complex solutions, using the Lambda architecture achieves solutions with higher performance and avoiding complexity.
+
+#### One of the problems of fully incremental architectures that can be solved without a total change of architecture is that of tolerance to human failure, this is achieved through the use of a store of immutable events, which we call fully incremental architecture with registration, this works for both synchronous and asynchronous architectures. Although human fault tolerance is fixed, the fully incremental architecture with registration fails to solve the other complexities or problems. The Lambda architecture presents a better solution to this type of problem.
 
