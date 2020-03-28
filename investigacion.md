@@ -44,3 +44,22 @@
 ### Data acquisition
 
 #### Acquiring the data is determining which of them are available. We must spare no effort in researching the appropriate data sources. We want to identify the appropriate data related to our problem and take advantage of all the data that is relevant to the analysis of the problem. Omitting only a small amount of important data can lead to incorrect conclusions.
+
+## Describe the Lambda and Kappa architectures and Describe the layers of each architecture
+
+### Lambda architecture
+
+#### The Lambda Architecture represented by the Greek letter, appeared in 2012 and is attributed to Nathan Marz. He defined it based on his experience in distributed data processing systems during his time as an employee in the Backtype and Twitter companies, and is inspired by his article How to beat the CAP theorem.
+
+#### Their goal was to have a robust fault-tolerant system, both human and hardware, that was linearly scalable and that allowed low-latency writes and reads.
+
+#### The data entering the system is dispatched to both the batch layer and the speed layer. The batch layer writes the data to the master data set and prepares the batch views, passing them to the server layer. The latter is in charge of indexing the batch views so that it can respond to searches with very low latency. The problem is that the process of writing data and then indexing it is slow, so it is not available instantly; this is where the role of the speed layer comes into play; which is dedicated to exposing only the most recent data, without worrying about writing it to a permanent record. The result of any search can bring together data from both batch layer and velocity layer views.
+
+### Kappa architecture
+
+#### The idea is to handle both real-time data processing and continuous reprocessing in a single stream processing engine. That’s right, reprocessing occurs from the stream. This requires that the incoming data stream can be replayed (very quickly), either in its entirety or from a specific position. If there are any code changes, then a second stream process would replay all previous data through the latest real-time engine and replace the data stored in the serving layer.
+
+#### This architecture attempts to simplify by only keeping one code base rather than manage one for each batch and speed layers in the Lambda Architecture. In addition, queries only need to look in a single serving location instead of going against batch and speed views.
+
+#### The complication of this architecture mostly revolves around having to process this data in a stream, such as handling duplicate events, cross-referencing events or maintaining order- operations that are generally easier to do in batch processing.
+
